@@ -10,7 +10,7 @@
 2. Navigate to the root directory in terminal if not already there
 3. Install dependencies if needed using ```npm install```
 4. We'll need to create a local .env file to run the app. Use the steps below to do this:
-    - Create new .env file in root directory
+    - Create new .env file in root directions
     - Add these lines to .env: ```VITE_AUTH0_DOMAIN=<TENANT_DOMAIN>``` and ```VITE_AUTH0_CLIENT_ID=<CLIENT_ID>```
 5. Run the app using ```npm run dev```
 6. Open up a browser and navigate to ```http://localhost:5173```
@@ -30,20 +30,10 @@
 14. After logging in and verifying you should see the terms and conditions check box. Accept and check the box to continue
 15. You should be logged in and verified after this step
 
-## Optional Steps
+## Optional: Viewing Metadata and MFA
 
-1. Navigate to Auth0 Dashboard then go to User Management -> Users -> click on your user (google or non-social)
-2. Scroll down and you should see both app_metadata populated with ```privacy_policies: true`` from terms and conditions and user_metadata populated with the countryName from IP during login
-3. To enable MFA (non-social):
-  - This will only work if you did not use google to sign in initially. If you used google do not follow steps below
-  - Navigate to user_metadata in your user profile. Add ```"use_mfa": true``` under countryName. Should look something like this:
-  ```
-    {
-      "country": "United States",
-      "use_mfa": true
-    }
-  ```
-  - MFA options should already be enabled in the Multi-Factor-Auth section of the dashboard. No need to change anything there
-  - Logout of the app and login again with the same user (non-social user)
-  - You will be prompted to scan QR code and enter code and click continue
-  - You should be verified and logged in after this step
+These steps describe what occurs in the Auth0 dashboard when completing login actions. The below instructions tell us how to view country metadata and enable MFA.
+
+1. After login, the user's country is shown in User Management -> Users -> click on user and user_metadata
+2. For non-social users, adding the ```"use_mfa" : true``` under user_metadata and under the countryName enables MFA during the next login. This does not need to be set again
+3. On this following login, Auth0 prompts for MFA (QR code and authenticator app) before completing authentication 
