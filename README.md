@@ -7,7 +7,7 @@
 
 
 1. Clone the repo using ```git clone <REPO_URL>```
-2. Navigate to cruise0 by ```cd cruise0```
+2. Navigate to the root directory in terminal if not already there
 3. Install dependencies if needed using ```npm install```
 4. We'll need to create a local .env file to run the app. Use the steps below to do this:
     - Create new .env file in root directory
